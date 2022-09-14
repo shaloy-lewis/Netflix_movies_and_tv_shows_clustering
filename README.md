@@ -7,39 +7,14 @@
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 1. Abstract:
+## 1. Introduction:
 * Netflix, headquartered in California, is a popular subscription streaming service and production firm. According to Statista, Netflix had approximately 220.67 million paid subscribers worldwide as of the second quarter of 2022. It is crucial that they effectively cluster the shows that are hosted on their platform in order to enhance the user experience for its subscribers.
 * We will be able to understand the shows that are similar to and different from one another by creating clusters, which may be leveraged to offer the consumers personalized show suggestions depending on their preferences.
 * The goal of this project is to classify/group the Netflix shows into certain clusters such that the shows within a cluster are similar to each other and the shows in different clusters are dissimilar to each other.
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 2. Introduction:
-* The dataset contained about 7787 records, and 11 attributes.
-### Attribute Information:
-* show_id: Unique ID for every Movie / TV Show
-* type: Movie / TV Show
-* title: Title of the Movie / TV Show
-* director: Director of the show
-* cast: Actors involved in the show
-* country: Country where the show was produced
-* date_added: Date the show was added on Netflix
-* release_year: Actual release year of the show
-* rating: TV Rating of the show
-* duration: Total Duration - in minutes or number of seasons
-* listed_in: Genre
-* description: Brief summary of the show
-
-![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-## 3. Data Cleaning:
-* The missing values in the director (2389), cast (718), and country (507) attributes were replaced with 'Unknown'. 10 records with missing values in the date_added column were dropped. The missing values in rating (7) were imputed with its mode, since this attribute is discrete.
-* There are some movies / TV shows that were filmed in multiple countries, have multiple genres associated with it. To simplify the analysis, only the primary country and primary genre of the respective movie / TV show was considered.
-* The movies / TV shows are rated to restrict users of certain age groups from viewing it. Since these ratings are different for movies and TV shows, we can simplify the categories simply by replacing them with the actual age groups. On doing so we end up with the following discrete features: 'Adults', 'Teens', 'Young Adults', 'Older Kids', 'Kids'. This is done to improve interpretability.
-
-![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-## 4. EDA Summary:
+## 2. EDA Summary:
 * There are more movies (69.14%) than TV shows (30.86%) in the dataset.
 * Raul Campos and Jan Suter together have directed 18 movies / TV shows, higher than anyone.
 * The highest number of movies / TV shows were based out of the US, followed by India and UK. The top 3 countries together account for about 56% of all movies and TV shows in the dataset. This value increases to about 78% for top ten countries.
@@ -58,29 +33,27 @@
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 5. Clustering Summary:
+## 3. Clustering Summary:
 * Clusters were built on the attributes: Director, Cast, Country, Rating, Listed in (genres), Description
 * Steps involved in preprosessing:Tokenize the corpus, Remove non-ascii characters, Convert all words to lowercase, Remove punctuation marks, Replace all numbers with its respective textual representation, Stemming and Lemmatization
 * Text corpus was vectorized using TFIDF vectorizer, and 20000 attributes were generated.
 * More than 80% of the variance is explained just by 4000 components. Hence to handle the curse of dimensionality, only the top 4000 components were taken, which will still be able to capture more than 80% of variance in the data.
 
-### a. K Means Clustering:
+### 3.1. K Means Clustering:
 * The optimal number of clusters were built after visualizing the elbow curve and the Silhouette score.
-* The elbow is formed at 19 clusters, and there is a peak in the Silhouette score at that point. Hence, the number of clusters for k-means clustering was taken as 19.
-• Distortion at 19 clusters: 6249.07
-• Silhouette score at 19 clusters: 0.0070
+* Highest Silhouette score is obtained for 6 clusters using k-means clustering. Hence, the number of clusters for k-means clustering was taken as 6.
+* Silhouette score at 6 clusters: 0.0082
 
-### b. Hierarchical Clustering:
-*  Clusters were built using the Agglomerative clustering algorithm, and the optimal number of clusters were built after visualizing the dendogram and the Silhouette score.
-* From the dendogram, at Euclidean distance of 3.8, 14 clusters can be built, and there is a peak in the value of Silhouette score at that point. Hence the number of clusters were taken as 14.
+### 3.2. Hierarchical Clustering:
+*  Clusters were built using the Agglomerative clustering algorithm, and the optimal number of clusters were built after visualizing the dendogram.
+* From the dendogram, at Euclidean distance of 3.8, 12 clusters can be built. Hence the number of clusters were taken as 12.
 * Algorithm: Agglomerative clustering
 * Distance: Euclidean
 * Linkage: Ward
-* Silhouette score: 0.0014
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 6. Recommender system using Constrained K Means Clustering:
+## 4. Recommender system using Constrained K Means Clustering:
 * We can build a simple content-based recommender system using k-means clustering. This is one of the most important applications of clustering usecase in online streaming businesses.
 * If a person has watched a show on Netflix, the recommender system must be able to recommend a list of similar shows that s/he likes.
 * To build a recommender system using k-means, we need to increase the number of clusters, so that the number recommendations is not in thousands
@@ -89,13 +62,12 @@
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 7. Conclusions:
+## 5. Conclusions:
 * In this project, we worked on a text clustering problem wherein we had to classify/group the Netflix shows into certain clusters such that the shows within a cluster are similar to each other and the shows in different clusters are dissimilar to each other.
 * The dataset contained about 7787 records, and 11 attributes.
 * It was found that Netflix hosts more movies than TV shows on its platform, and the total number of shows added on Netflix is growing exponentially. Also, majority of the shows were produced in the United States, and the majority of the shows on Netflix were created for adults and young adults age group.
-* It was decided to cluster the data based on the attributes: director, cast, country, rating, genre, and description. The values in these attributes were tokenized, pre-processed, and then vectorized using TFIDF vectorizer. Through TFIDF Vectorization, we created a total of 20000 attributes.
-* We used Principal Component Analysis (PCA) to handle the curse of dimensionality. 4000 components were able to capture more than 80% of variance, and hence, the number of components were restricted to 4000.
-* We first built clusters using the k-means clustering algorithm, and the optimal number of clusters came out to be 19. This was obtained through the elbow method and Silhouette score analysis.
-* Hierarchical clustering model was built using the Agglomerative clustering algorithm, and the optimal number of clusters came out to be 14. This was obtained after visualizing the dendogram, and Silhouette score analysis.
-* The k means clustering algorithm does a better job in clustering the shows than hierarchical clustering algorithm.
+* It was decided to cluster the data based on the attributes: director, cast, country, genre, and description. The values in these attributes were pre-processed, tokenized, and then vectorized using TFIDF vectorizer. Through TFIDF Vectorization, we created a total of 20000 attributes.
+* Principal Component Analysis (PCA) was used to handle the curse of dimensionality. 4000 components were able to capture more than 80% of variance, and hence, the number of components were restricted to 4000.
+* We first built clusters using the k-means clustering algorithm, and the optimal number of clusters came out to be 6. This was obtained through the elbow method and Silhouette score analysis.
+* Hierarchical clustering model was built using the Agglomerative clustering algorithm, and the optimal number of clusters came out to be 12. This was obtained after visualizing the dendogram.
 * A content-based recommender system was built using the constrained k-means clustering algorithm. 500 clusters were built using this algorithm, and each cluster had anywhere between 10-20 shows. This recommender system will make 10–20 recommendations to the user based on the type of show they watch.
