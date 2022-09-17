@@ -7,6 +7,18 @@
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+## Index
+
+| Sl. No. | Section         |  
+|:--------|:-------------------------|
+|    1    |   <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#1-introduction">   Introduction  </a>    | 
+|    2    |   <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#2-eda-summary">   EDA Summary    </a>   | 
+|    3    | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#3-clustering-summary"> Clustering Summary  </a> | 
+|    4    | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#4-recommender-system-using-constrained-k-means-clustering"> Recommender system </a> |
+| 5 | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#5-conclusions"> Conclusions  </a> |
+
+![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 1. Introduction:
 * Netflix, headquartered in California, is a popular subscription streaming service and production firm. According to Statista, Netflix had approximately 220.67 million paid subscribers worldwide as of the second quarter of 2022. It is crucial that they effectively cluster the shows that are hosted on their platform in order to enhance the user experience for its subscribers.
 * We will be able to understand the shows that are similar to and different from one another by creating clusters, which may be leveraged to offer the consumers personalized show suggestions depending on their preferences.
@@ -46,7 +58,7 @@
 
 ### 3.2. Hierarchical Clustering:
 *  Clusters were built using the Agglomerative clustering algorithm, and the optimal number of clusters were built after visualizing the dendogram.
-* From the dendogram, at Euclidean distance of 3.8, 12 clusters can be built. Hence the number of clusters were taken as 12.
+* From the dendogram, at an Euclidean distance of 3.8 units, 12 clusters can be built. Hence the number of clusters were taken as 12.
 * Algorithm: Agglomerative clustering
 * Distance: Euclidean
 * Linkage: Ward
