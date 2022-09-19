@@ -14,7 +14,7 @@
 |    1    |   <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#1-introduction">   Introduction  </a>    | 
 |    2    |   <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#2-eda-summary">   EDA Summary    </a>   | 
 |    3    | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#3-clustering-summary"> Clustering Summary  </a> | 
-|    4    | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#4-recommender-system-using-constrained-k-means-clustering"> Recommender system </a> |
+|    4    | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#4-recommender-system-using-constrained-k-means-clustering"> Content Based Recommender System </a> |
 | 5 | <a href="https://github.com/shaloy-lewis/Netflix_movies_and_tv_shows_clustering#5-conclusions"> Conclusions  </a> |
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -65,12 +65,10 @@
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-## 4. Recommender system using Constrained K Means Clustering:
-* We can build a simple content-based recommender system using k-means clustering. This is one of the most important applications of clustering usecase in online streaming businesses.
-* If a person has watched a show on Netflix, the recommender system must be able to recommend a list of similar shows that s/he likes.
-* To build a recommender system using k-means, we need to increase the number of clusters, so that the number recommendations is not in thousands
-* The k-means constrained algorithm works similar to the k-means clustering algorithm, except that in the former, we can specify the maximum and minimum elements in each cluster.
-* Using k means constrained constrained algorithm, 500 clusters were built which could recommend around 10-20 shows to users based on the show they liked.
+## 4. Content Based Recommender system using Cosine Similarity:
+* We can build a simple content based recommender system based on the similarity of the shows.
+* If a person has watched a show on Netflix, the recommender system must be able to recommend a list of similar shows that s/he likes. To get the similarity score of the shows, we can use cosine similarity.
+* The similarity between two vectors (A and B) is calculated by taking the dot product of the two vectors and dividing it by the magnitude. We can simply say that the CS score of two vectors increases as the angle between them decreases.
 
 ![--](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
