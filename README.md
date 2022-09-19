@@ -80,4 +80,4 @@
 * Principal Component Analysis (PCA) was used to handle the curse of dimensionality. 4000 components were able to capture more than 80% of variance, and hence, the number of components were restricted to 4000.
 * We first built clusters using the k-means clustering algorithm, and the optimal number of clusters came out to be 6. This was obtained through the elbow method and Silhouette score analysis.
 * Hierarchical clustering model was built using the Agglomerative clustering algorithm, and the optimal number of clusters came out to be 12. This was obtained after visualizing the dendogram.
-* A content-based recommender system was built using the constrained k-means clustering algorithm. 500 clusters were built using this algorithm, and each cluster had anywhere between 10-20 shows. This recommender system will make 10–20 recommendations to the user based on the type of show they watch.
+* A content based recommender system was built using the similarity matrix obtained after using cosine similarity. This recommender system will make 10 recommendations to the user based on the type of show they watched.
